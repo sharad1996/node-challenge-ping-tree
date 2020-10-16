@@ -21,11 +21,16 @@
     "standard": "^14.3.4"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "corsify": "^2.1.0",
     "cuid": "^2.1.8",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "healthpoint": "^1.0.0",
     "http-hash-router": "^2.0.1",
+    "mongoose": "^5.10.9",
+    "path": "^0.12.7",
     "productionize": "^4.1.0",
     "redis": "^3.0.2",
     "req-logger": "^2.0.0",
