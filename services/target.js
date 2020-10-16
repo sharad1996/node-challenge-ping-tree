@@ -29,7 +29,12 @@ exports.getTargets = async function (req, res, next) {
 // Post Target
 exports.addTarget = async function (req, res, next) {
     try {
-        const payload = { url: req.body.url, value: req.body.value, maxAcceptsPerDay: req.body.maxAcceptsPerDay, accept: req.body.accept }
+        const payload = {
+            url: req.body.url,
+            value: req.body.value,
+            maxAcceptsPerDay: req.body.maxAcceptsPerDay,
+            accept: req.body.accept
+        }
         const target = new Target({ ...payload })
         target.save()
         if (target) {

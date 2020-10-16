@@ -1,5 +1,4 @@
 const express = require('express')
-const path = require('path')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
@@ -7,7 +6,8 @@ const router = express.Router()
 const app = express()
 
 const Target = require('./models/target')
-const targetRoutes = require('./routes/api-target')
+const targetRoutes = require('./routes/target')
+const healthService = require('./services/health')
 const connect = require('./dbconfig')
 
 connect()
@@ -16,10 +16,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json({ limit: '5mb' }))
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, 'public')))
+
+// api health routes
+router.get('/health', healthService.handler)
 
 // api target routes
 app.use('/api', cors('*'), targetRoutes)
+
 // visitor route
 router.post('/route', async function (req, res, next) {
     try {

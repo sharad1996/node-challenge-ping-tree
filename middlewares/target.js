@@ -1,4 +1,4 @@
-var redis = require('../lib/redis')
+const redis = require('../lib/redis')
 
 exports.isCached = (req, res, next) => {
     const { id } = req.params

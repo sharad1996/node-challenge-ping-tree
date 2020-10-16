@@ -1,7 +1,7 @@
-var express = require('express')
-var router = express.Router()
-const services = require('../services/service-target')
-const middleware = require('../middlewares/middleware-target')
+const express = require('express')
+const router = express.Router()
+const services = require('../services/target')
+const middleware = require('../middlewares/target')
 
 router.get('/target/:id', middleware.isCached, services.getTarget)
 
